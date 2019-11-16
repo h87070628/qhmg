@@ -209,7 +209,7 @@ class DialogMgr {
 		this.create_view(_view, param.Name)
 
 		let background: fairygui.GComponent = <fairygui.GComponent>_view.getChild("background")
-		background.setScale(fairygui.GRoot.inst.width/720, fairygui.GRoot.inst.height/1280);
+		background.setScale(fairygui.GRoot.inst.width/1280, fairygui.GRoot.inst.height/720);
 		if (param.Pierce) {
 			_view.opaque = false
 			background.opaque = false

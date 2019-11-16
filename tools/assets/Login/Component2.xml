@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,720">
+  <displayList>
+    <loader id="n1_dk19" name="n1" xy="351,116" size="618,382" url="ui://kl5ahh5rm9980" fill="scaleFree"/>
+    <component id="n2_rw5v" name="login_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="568,379">
+      <Button title="登录" selectedTitle="登录"/>
+    </component>
+    <component id="n3_mr2r" name="btn_setting" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="790,121">
+      <Button title="设置"/>
+    </component>
+    <component id="n4_mr2r" name="choose_svr" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="356,121">
+      <Button title="选服" selectedTitle="选服"/>
+    </component>
+    <text id="n5_mr2r" name="svr_name" xy="604,268" size="117,36" fontSize="28" text="逐鹿中原"/>
+  </displayList>
+</component>

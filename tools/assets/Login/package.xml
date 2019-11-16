@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="wb0jqihm" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="dk190" name="Component1.xml" path="/" exported="true"/>
+    <component id="dk191" name="Component2.xml" path="/"/>
+  </resources>
+  <publish name="Login"/>
+</packageDescription>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="kl5ahh5r" jpegQuality="80" compressPNG="true">
+  <resources>
+    <image id="m9980" name="frame_08_06.png" path="/" exported="true" scale="9grid" scale9grid="24,22,48,44"/>
+    <image id="m9981" name="frame_22.png" path="/"/>
+    <image id="m9982" name="frame_28.png" path="/"/>
+    <image id="m9983" name="frame_29.png" path="/"/>
+    <image id="m9984" name="general_Button_02.png" path="/"/>
+    <image id="m9985" name="general_Button_03.png" path="/"/>
+    <image id="m9986" name="hp_down.png" path="/"/>
+    <image id="m9987" name="hp_up.png" path="/"/>
+    <image id="m9988" name="hp.png" path="/"/>
+    <image id="m9989" name="icon_effect.png" path="/"/>
+    <image id="m998a" name="icon_jiahao.png" path="/"/>
+    <image id="m998b" name="icon_music.png" path="/"/>
+    <image id="m998c" name="monopoly_no.png" path="/"/>
+    <image id="m998d" name="monopoly_yes.png" path="/"/>
+    <component id="l45ee" name="Component1.xml" path="/" exported="true"/>
+    <component id="fi35f" name="button_01.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="_Common_00"/>
+</packageDescription>

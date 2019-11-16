@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,720">
+  <displayList/>
+  <transition name="t0">
+    <item time="0" type="Scale" tween="true" startValue="0,0" endValue="1,1" duration="6" ease="Back.Out"/>
+    <item time="6" type="Scale" tween="true" startValue="1,1" endValue="0,0" duration="6" ease="Back.In"/>
+  </transition>
+</component>

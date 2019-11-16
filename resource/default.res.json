@@ -5,7 +5,7 @@
 			"name": "preload"
 		},
 		{
-			"keys": "Login,_Common_00,_Common_00_atlas0,_Common_00_atlas0_1,_Common_00_atlas0_2",
+			"keys": "Login,_Common_00,_Common_00_atlas0",
 			"name": "login_step"
 		},
 		{
@@ -38,16 +38,6 @@
 			"url": "assets/_Common_00_atlas0.png",
 			"type": "image",
 			"name": "_Common_00_atlas0"
-		},
-		{
-			"url": "assets/_Common_00_atlas0_1.png",
-			"type": "image",
-			"name": "_Common_00_atlas0_1"
-		},
-		{
-			"url": "assets/_Common_00_atlas0_2.png",
-			"type": "image",
-			"name": "_Common_00_atlas0_2"
 		},
 		{
 			"url": "assets/Flyword.jpg",
