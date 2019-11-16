@@ -1,0 +1,88 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,Flyword,Input,MainScenes,MainUI,Mask,Notify,Choice",
+			"name": "preload"
+		},
+		{
+			"keys": "Login,_Common_00,_Common_00_atlas0,_Common_00_atlas0_1,_Common_00_atlas0_2",
+			"name": "login_step"
+		},
+		{
+			"keys": "B341",
+			"name": "maps"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/maps/B341.jpg",
+			"type": "bin",
+			"name": "B341"
+		},
+		{
+			"url": "assets/Login.jpg",
+			"type": "bin",
+			"name": "Login"
+		},
+		{
+			"url": "assets/_Common_00.jpg",
+			"type": "bin",
+			"name": "_Common_00"
+		},
+		{
+			"url": "assets/_Common_00_atlas0.png",
+			"type": "image",
+			"name": "_Common_00_atlas0"
+		},
+		{
+			"url": "assets/_Common_00_atlas0_1.png",
+			"type": "image",
+			"name": "_Common_00_atlas0_1"
+		},
+		{
+			"url": "assets/_Common_00_atlas0_2.png",
+			"type": "image",
+			"name": "_Common_00_atlas0_2"
+		},
+		{
+			"url": "assets/Flyword.jpg",
+			"type": "bin",
+			"name": "Flyword"
+		},
+		{
+			"url": "assets/Input.jpg",
+			"type": "bin",
+			"name": "Input"
+		},
+		{
+			"url": "assets/MainScenes.jpg",
+			"type": "bin",
+			"name": "MainScenes"
+		},
+		{
+			"url": "assets/MainUI.jpg",
+			"type": "bin",
+			"name": "MainUI"
+		},
+		{
+			"url": "assets/Mask.jpg",
+			"type": "bin",
+			"name": "Mask"
+		},
+		{
+			"url": "assets/Notify.jpg",
+			"type": "bin",
+			"name": "Notify"
+		},
+		{
+			"url": "assets/Choice.jpg",
+			"type": "bin",
+			"name": "Choice"
+		}
+	]
+}

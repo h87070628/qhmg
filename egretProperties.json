@@ -1,0 +1,49 @@
+{
+  "engineVersion": "5.2.25",
+  "compilerVersion": "5.2.25",
+  "template": {},
+  "target": {
+    "current": "web"
+  },
+  "modules": [
+    {
+      "name": "egret"
+    },
+    {
+      "name": "assetsmanager"
+    },
+    {
+      "name": "dragonBones"
+    },
+    {
+      "name": "game"
+    },
+    {
+      "name": "tween"
+    },
+    {
+      "name": "egret-facebook"
+    },
+    {
+      "name": "egretia-sdk"
+    },
+
+    {
+    	"name": "socket"
+    },
+    {
+    	"name": "experimental"
+    },
+    {
+    	"name": "promise"
+    },
+    {
+	"name": "fairygui",
+	"path": "./libs/fairygui"
+    },
+    {
+	"name": "long",
+	"path": "./libs/long"
+    }
+  ]
+}
