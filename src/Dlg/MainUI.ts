@@ -6,7 +6,6 @@ class MainUI {
 	private others_: fairygui.GComponent;
 	private pets_: fairygui.GComponent;
 
-	private _searchPet: any
 	private _bitmap: egret.Bitmap;
 	private _rankNode: fairygui.GComponent
 	private _rankingListMask: egret.Shape
@@ -46,35 +45,45 @@ class MainUI {
 			})
 		}
 		*/
-		//定位实际屏幕的底部
-		let bottom = <fairygui.GLabel>this._view.getChild("n39")
-		bottom.y = fairygui.GRoot.inst.height
+		/*
+		//定位实际屏幕的左边
+		let left_ = <fairygui.GLabel>this._view.getChild("left_")
+		left_.x = 0
+		//定位实际屏幕的右边
+		let right_ = <fairygui.GLabel>this._view.getChild("right_")
+		right_.x = fairygui.GRoot.inst.width
+		*/
 
-		//创建一个渐变背景
-		//let _shape = gMgrs["ComMgr"].creatShape(egret.GradientType.RADIAL, [0x70CCC6, 0xCFD6CC], [1, 1], [180, 250], 720, 1280, 220, 220)
-		//this._view.getChild("bg").asCom._container.addChild(_shape);
-
+		/*
 		this._rankNode = <fairygui.GComponent>this._view.getChild("rank")
 		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._rankNode.getChild("btn_close"), this.onCloseRank, this)
 		this._rankNode.visible = false
+		*/
 
-		this.add_btn_callback(["btn_handbook", "btn_enargy", "btn_combine", "btn_resolve", "btn_card", "btn_mate", "btn_ladder", "btn_rank"])
+		//绑定按钮
+		this.add_btn_callback(["head_btn", "maps_btn", "skills_btn", "chats_btn", "roles_btn"])
 
+		//启动秒定时器
 		this.cfg.sec_timer_ = gMgrs["ComMgr"].run_loop(function () {
 			this.another_sec()
 		}.bind(this), 1000)
 		
+		//添加事件监听
 		gMgrs["EventMgr"].addEvent(gMgrs["ComMgr"].gCNT().EVENT.UPDATE_UI_MSG, this.onUpdateUI, this);
 	}
 
 	public destroy() {
-		//this.cfg.sec_timer_();	//停止毫秒逻辑定时器
-		//this.cfg.sec_timer_ = null
+		//停止毫秒逻辑定时器
+		this.cfg.sec_timer_();
+		this.cfg.sec_timer_ = null
 
+		//停止事件监听
 		gMgrs["EventMgr"].delEvent(gMgrs["ComMgr"].gCNT().EVENT.UPDATE_UI_MSG, this.onUpdateUI, this);
-		this.del_btn_callback(["btn_handbook", "btn_enargy", "btn_combine", "btn_resolve", "btn_card", "btn_mate", "btn_ladder", "btn_rank"])
+		
+		//删除按钮监听
+		this.del_btn_callback(["head_btn", "maps_btn", "skills_btn", "chats_btn", "roles_btn"])
 		gMgrs["ComMgr"].untouch_btn(<fairygui.GButton>this._rankNode.getChild("btn_close"), this.onCloseRank, this)
-		this._searchPet = null
+
 		this._root = null
 		this._view = null
 	}

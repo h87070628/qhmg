@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,720">
+  <displayList>
+    <text id="n5_mf1f" name="left_" xy="0,360" pivot="1,0.5" anchor="true" size="62,36" fontSize="28" text="左边"/>
+    <text id="n6_mf1f" name="right_" xy="1280,360" pivot="0,0.5" anchor="true" size="62,36" fontSize="28" text="右边"/>
+    <component id="n0_mf1f" name="head_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="7,6">
+      <Button title="头像" selectedTitle="头像"/>
+    </component>
+    <component id="n1_mf1f" name="maps_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="1099,3">
+      <Button title="地图" selectedTitle="地图"/>
+    </component>
+    <component id="n2_mf1f" name="skills_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="1098,637">
+      <Button title="技能" selectedTitle="技能"/>
+    </component>
+    <component id="n3_mf1f" name="chats_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="8,642">
+      <Button title="聊天" selectedTitle="聊天"/>
+    </component>
+    <component id="n4_mf1f" name="roles_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="535,313">
+      <Button title="主角"/>
+    </component>
+  </displayList>
+</component>

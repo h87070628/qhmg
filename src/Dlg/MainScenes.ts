@@ -1,3 +1,6 @@
+/*
+	--[[游戏地图层]]--
+*/
 class MainScenes {
 	private _root: fairygui.GComponent
 	private _view: fairygui.GComponent
