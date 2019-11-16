@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="wkpp6enm" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="mf1f0" name="Component1.xml" path="/" exported="true"/>
+    <component id="mf1f1" name="Component2.xml" path="/"/>
+  </resources>
+  <publish name="MainScenes"/>
+</packageDescription>
