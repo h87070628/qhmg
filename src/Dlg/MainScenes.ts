@@ -13,6 +13,18 @@ class MainScenes {
 
 	public onLoadView() {
 		console.log("MainScenes__")
+
+		//加载TiledMap
+		/*
+		RES.getResAsync("desert", function (data, key): void {
+			let tiled_:any = egret.XML.parse(data);
+			let tmxTileMap: tiled.TMXTilemap = new tiled.TMXTilemap(2000, 2000, tiled_, "resource/assets/maps/");
+			tmxTileMap.render();
+
+			let stage = gMgrs["ComMgr"].gStage()
+			stage.addChild(tmxTileMap)
+		}.bind(this), this)
+		*/
 	}
 	public destroy() {
 		gMgrs["EventMgr"].delEvent(gMgrs["ComMgr"].gCNT().EVENT.MAP_MSG, this.onUpdateUI, this);
@@ -35,5 +47,14 @@ class MainScenes {
 	private on_update_maps(data) {
 		//let _url = "" + head[index].head.headImage
 		//iconLoader.url = `ui://_Common_00/${_url}`;
+		/*
+		RES.getResAsync("desert", function (data, key): void {
+			let tiled_:any = egret.XML.parse(data);
+			let tmxTileMap: tiled.TMXTilemap = new tiled.TMXTilemap(2000, 2000, data, this.url);
+			tmxTileMap.render();
+			this.addChild(tmxTileMap);
+			console.log("========================X")
+		}.bind(this), this)
+		*/
 	}
 }

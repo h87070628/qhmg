@@ -27,23 +27,26 @@
     {
       "name": "egretia-sdk"
     },
-
     {
-    	"name": "socket"
+      "name": "socket"
     },
     {
-    	"name": "experimental"
+      "name": "experimental"
     },
     {
-    	"name": "promise"
+      "name": "promise"
     },
     {
-	"name": "fairygui",
-	"path": "./libs/fairygui"
+      "name": "fairygui",
+      "path": "./libs/fairygui"
     },
     {
-	"name": "long",
-	"path": "./libs/long"
+      "name": "tiled",
+      "path": "./libs/tiled"
+    },
+    {
+      "name": "long",
+      "path": "./libs/long"
     }
   ]
 }

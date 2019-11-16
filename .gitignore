@@ -1,3 +1,4 @@
 .wing/
 bin-debug/
 tools/.objs/cache/
+.DS_Store

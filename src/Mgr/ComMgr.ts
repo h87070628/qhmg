@@ -147,6 +147,9 @@ class ComMgr {
 		return this.GLOBAL;
 	}
 
+	public gStage(){
+		return this.stage_;
+	}
 	//各类简化语法糖
 	//与具体游戏无关******************************************
 	/**

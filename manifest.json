@@ -11,6 +11,7 @@
 		"libs/modules/experimental/experimental.js",
 		"libs/modules/promise/promise.js",
 		"libs/fairygui/fairygui.js",
+		"libs/tiled/tiled.js",
 		"libs/long/long.js"
 	],
 	"game": [
