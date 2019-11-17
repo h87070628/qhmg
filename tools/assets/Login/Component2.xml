@@ -2,7 +2,7 @@
 <component size="1280,720">
   <displayList>
     <loader id="n1_dk19" name="n1" xy="351,116" size="618,382" url="ui://kl5ahh5rm9980" fill="scaleFree"/>
-    <component id="n2_rw5v" name="login_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="568,379">
+    <component id="n2_rw5v" name="login_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="573,120">
       <Button title="登录" selectedTitle="登录"/>
     </component>
     <component id="n3_mr2r" name="btn_setting" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="790,121">
@@ -11,9 +11,21 @@
     <component id="n4_mr2r" name="choose_svr" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="356,121">
       <Button title="选服" selectedTitle="选服"/>
     </component>
-    <text id="n5_mr2r" name="svr_name" xy="604,268" size="117,36" fontSize="28" text="逐鹿中原"/>
-    <component id="n6_tfhm" name="test_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="357,419">
+    <text id="n5_mr2r" name="svr_name" xy="603,198" size="117,36" fontSize="28" text="逐鹿中原"/>
+    <component id="n6_tfhm" name="test_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="356,207">
       <Button title="测试" selectedTitle="测试"/>
+    </component>
+    <component id="n7_tfhm" name="top_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="624,278">
+      <Button title="上" selectedTitle="上"/>
+    </component>
+    <component id="n8_tfhm" name="right_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="790,352">
+      <Button title="右" selectedTitle="右"/>
+    </component>
+    <component id="n9_tfhm" name="bom_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="624,420">
+      <Button title="下" selectedTitle="下"/>
+    </component>
+    <component id="n10_tfhm" name="left_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="450,352">
+      <Button title="左" selectedTitle="左"/>
     </component>
   </displayList>
 </component>

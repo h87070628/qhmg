@@ -34,6 +34,10 @@ class Login {
 		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("btn_setting"), this.btn_callback, this)
 		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("choose_svr"), this.btn_callback, this)
 		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("test_btn"), this.btn_callback, this)
+		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("top_btn"), this.btn_callback, this)
+		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("right_btn"), this.btn_callback, this)
+		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("bom_btn"), this.btn_callback, this)
+		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("left_btn"), this.btn_callback, this)
 
 		gMgrs["EventMgr"].addEvent(gMgrs["ComMgr"].gCNT().EVENT.UPDATE_UI_MSG, this.get_serverinfo, this)
 		this._view.getChild("login_btn").visible = false
@@ -351,6 +355,14 @@ class Login {
 			})
 		} else if (btn_name === "test_btn") {
 			this.load_tiled()
+		} else if (btn_name === "top_btn") {
+			this.cfg.tmxTileMap.y = this.cfg.tmxTileMap.y + 32
+		} else if (btn_name === "right_btn") {
+			this.cfg.tmxTileMap.x = this.cfg.tmxTileMap.x - 64
+		} else if (btn_name === "bom_btn") {
+			this.cfg.tmxTileMap.y = this.cfg.tmxTileMap.y - 32
+		} else if (btn_name === "left_btn") {
+			this.cfg.tmxTileMap.x = this.cfg.tmxTileMap.x + 64
 		}
 	}
 
@@ -363,7 +375,7 @@ class Login {
 			}
 
 			let tiled_: any = egret.XML.parse(data);
-			this.cfg.tmxTileMap = new tiled.TMXTilemap(2000, 2000, tiled_, "resource/assets/maps/");
+			this.cfg.tmxTileMap = new tiled.TMXTilemap(2560, 1280, tiled_, "resource/assets/maps/");
 			this.cfg.tmxTileMap.render();
 			this._view._container.addChildAt(this.cfg.tmxTileMap, 1);
 
@@ -380,9 +392,23 @@ class Login {
 					layer = layers[i]
 					//console.log(layers[i].getTile(1024, 20))
 					let renderer: any = layer.getRenderer()
-					this.draw_wire(renderer)
 
-					//绘制线段
+					//获取障碍物体ID
+					let obstacle: egret.Point = renderer.tileToPixelCoords(0, 0)
+					let obsID = layer.getTileId(obstacle.x, obstacle.y)
+
+					//根据地图黑白图添加障碍物
+					let M2CellInfo = gMgrs["MapMgr"].get_cfg("M2CellInfo")
+					for (let ii = 0; ii < this.cfg.tmxTileMap.rows; ii++) {
+						for (let jj = 0; jj < this.cfg.tmxTileMap.cols; jj++) {
+							console.log("x:"+jj+"y:"+ii+"="+M2CellInfo[ii * this.cfg.tmxTileMap.cols + jj])
+							if (M2CellInfo[ii * this.cfg.tmxTileMap.cols + jj] === 0) {
+								layer.setTile(jj, ii, obsID)
+							}
+						}
+					}
+					//绘制参考线段
+					//this.draw_wire(renderer)
 				} else if (layers[i] instanceof tiled.TMXObjectGroup) {
 					console.log("tiled.TMXObjectGroup")
 				}
@@ -390,7 +416,7 @@ class Login {
 		}.bind(this), this)
 	}
 
-	//绘制横线段
+	//绘制线段
 	public draw_wire(renderer) {
 		let rows = this.cfg.tmxTileMap.rows
 		let cols = this.cfg.tmxTileMap.cols
@@ -398,27 +424,27 @@ class Login {
 		let height = this.cfg.tmxTileMap.tileheight
 
 		let lt: egret.Point = renderer.tileToPixelCoords(0, 0)
-		let lb: egret.Point = renderer.tileToPixelCoords(0, rows-1)
-		let rt: egret.Point = renderer.tileToPixelCoords(cols-1, 0)
-		let rb: egret.Point = renderer.tileToPixelCoords(cols-1, rows-1)
+		let lb: egret.Point = renderer.tileToPixelCoords(0, rows - 1)
+		let rt: egret.Point = renderer.tileToPixelCoords(cols - 1, 0)
+		let rb: egret.Point = renderer.tileToPixelCoords(cols - 1, rows - 1)
 		for (let ii = 0; ii < rows; ii++) {
 			lt = renderer.tileToPixelCoords(0, ii)
 			lb = renderer.tileToPixelCoords(0, ii + 1)
-			rt = renderer.tileToPixelCoords(cols-1, ii)
-			rb = renderer.tileToPixelCoords(cols-1, ii + 1)
+			rt = renderer.tileToPixelCoords(cols, ii)
+			rb = renderer.tileToPixelCoords(cols, ii + 1)
 			let shp: egret.Shape = this.draw_grid(lt, lb, rt, rb)
-			this._view._container.addChildAt(shp, 1);
+			this.cfg.tmxTileMap.addChildAt(shp, 1);
 		}
 
 		for (let ii = 0; ii < cols; ii++) {
 			lt = renderer.tileToPixelCoords(ii, 0)
-			lb = renderer.tileToPixelCoords(ii, rows-1)
-			lb = lb.add(new egret.Point(-width/2, +height/2))
-			rt = renderer.tileToPixelCoords(ii+1, 0)
-			rb = renderer.tileToPixelCoords(ii + 1, rows-1)
-			rb = rb.add(new egret.Point(-width/2, +height/2))
+			lb = renderer.tileToPixelCoords(ii, rows - 1)
+			lb = lb.add(new egret.Point(-width / 2, +height / 2))
+			rt = renderer.tileToPixelCoords(ii + 1, 0)
+			rb = renderer.tileToPixelCoords(ii + 1, rows - 1)
+			rb = rb.add(new egret.Point(-width / 2, +height / 2))
 			let shp: egret.Shape = this.draw_grid(lt, lb, rt, rb)
-			this._view._container.addChildAt(shp, 1);
+			this.cfg.tmxTileMap.addChildAt(shp, 1);
 		}
 	}
 

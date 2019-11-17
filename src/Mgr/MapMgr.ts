@@ -21,6 +21,10 @@ class MapMgr {
 		this.cfg = gMgrs["DataMgr"].get_map_data()
 		this.init_data()
 		gMgrs["EventMgr"].addEvent(gMgrs["ComMgr"].gCNT().EVENT.PASSIVE_MSG, this.onPassive, this, -1);
+
+		//地图测试
+		this.LoadMap("B341")
+		this.cfg.current = "B341"
 	}
 
 	//析构函数
