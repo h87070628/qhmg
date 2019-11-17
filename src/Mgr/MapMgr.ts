@@ -4,6 +4,9 @@
 class MapMgr {
 	private cfg: any;
 	private init_data() {
+		//当前地图
+		this.cfg.current = ""
+
 		//地块,可行走&纹理
 		this.cfg.M2CellInfo = new Array()
 
@@ -26,8 +29,21 @@ class MapMgr {
 		gMgrs["EventMgr"].delEvent(gMgrs["ComMgr"].gCNT().EVENT.PASSIVE_MSG, this.onPassive, this);
 	}
 
+	//获取值
+	public get_cfg(key) {
+		return this.cfg[key]
+	}
+
+	//设置值
+	public set_cfg(key, value) {
+		this.cfg[key] = value
+	}
+
+	/*******************管理类的业务逻辑******************/
 	//清理(切换地图时)
 	public Dispose() {
+		this.cfg.current = ""
+
 		this.cfg.Doors.splice(0, this.cfg.Doors.length)
 		this.cfg.Effects.splice(0, this.cfg.Effects.length)
 		this.cfg.Objects.splice(0, this.cfg.Objects.length)
@@ -61,15 +77,18 @@ class MapMgr {
 				}
 			}
 			console.log(this.cfg.M2CellInfo.length)
+			console.log("======================X1:")
 			//通知界面绘制TODO
-			gMgrs["EventMgr"].sendEvent(gMgrs["ComMgr"].gCNT().EVENT.MAP_MSG, { TARGET: "MainScenes", TYPE: "MapMgr", PARAM:"INIT", DATA: this.cfg.M2CellInfo })
+			gMgrs["EventMgr"].sendEvent(gMgrs["ComMgr"].gCNT().EVENT.MAP_MSG, { TARGET: "MainScenes", TYPE: "MapMgr", PARAM: "UPDATE", DATA: this.cfg.M2CellInfo })
 		}.bind(this), this)
 	}
 
+	//网络被动回调
 	public onPassive(event: any) {
 		let data = event.data.DATA
 		if (data.mID === 17) {	//SMapInformation地图信息
 			this.LoadMap(data.FileName)
+			this.cfg.current = data.FileName
 		}
 	}
 }
