@@ -9,7 +9,7 @@
 			"name": "login_step"
 		},
 		{
-			"keys": "B341,desert,hexmini,tmw_desert_spacing",
+			"keys": "B341,desert,hexmini,tmw_desert_spacing,B341_tmx,tiled",
 			"name": "maps"
 		}
 	],
@@ -88,6 +88,16 @@
 			"url": "assets/maps/tmw_desert_spacing.png",
 			"type": "image",
 			"name": "tmw_desert_spacing"
+		},
+		{
+			"url": "assets/maps/B341.tmx",
+			"type": "text",
+			"name": "B341_tmx"
+		},
+		{
+			"url": "assets/maps/tiled.png",
+			"type": "image",
+			"name": "tiled"
 		}
 	]
 }

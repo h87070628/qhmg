@@ -12,5 +12,8 @@
       <Button title="选服" selectedTitle="选服"/>
     </component>
     <text id="n5_mr2r" name="svr_name" xy="604,268" size="117,36" fontSize="28" text="逐鹿中原"/>
+    <component id="n6_tfhm" name="test_btn" src="fi35f" fileName="button_01.xml" pkg="kl5ahh5r" xy="357,419">
+      <Button title="测试" selectedTitle="测试"/>
+    </component>
   </displayList>
 </component>

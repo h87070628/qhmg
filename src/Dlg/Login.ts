@@ -33,6 +33,7 @@ class Login {
 		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("login_btn"), this.btn_callback, this)
 		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("btn_setting"), this.btn_callback, this)
 		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("choose_svr"), this.btn_callback, this)
+		gMgrs["ComMgr"].touch_btn(<fairygui.GButton>this._view.getChild("test_btn"), this.btn_callback, this)
 
 		gMgrs["EventMgr"].addEvent(gMgrs["ComMgr"].gCNT().EVENT.UPDATE_UI_MSG, this.get_serverinfo, this)
 		this._view.getChild("login_btn").visible = false
@@ -56,6 +57,7 @@ class Login {
 		gMgrs["ComMgr"].untouch_btn(<fairygui.GButton>this._view.getChild("login_btn"), this.btn_callback, this)
 		gMgrs["ComMgr"].untouch_btn(<fairygui.GButton>this._view.getChild("btn_setting"), this.btn_callback, this)
 		gMgrs["ComMgr"].untouch_btn(<fairygui.GButton>this._view.getChild("choose_svr"), this.btn_callback, this)
+		gMgrs["ComMgr"].untouch_btn(<fairygui.GButton>this._view.getChild("test_btn"), this.btn_callback, this)
 
 		gMgrs["EventMgr"].delEvent(gMgrs["ComMgr"].gCNT().EVENT.UPDATE_UI_MSG, this.get_serverinfo, this)
 
@@ -347,6 +349,89 @@ class Login {
 					gMgrs["EventMgr"].sendEvent(gMgrs["ComMgr"].gCNT().EVENT.UPDATE_UI_MSG, { TARGET: null, TYPE: "SETTING", PARAM: "hideStartBtn", DATA: {} })
 				}.bind(this), Data: {},
 			})
+		} else if (btn_name === "test_btn") {
+			this.load_tiled()
 		}
+	}
+
+	/* **************测试代码************** */
+	public load_tiled() {
+		//加载TiledMap
+		RES.getResAsync("B341_tmx", function (data, key): void {
+			if (this.cfg.tmxTileMap) {
+				this._view._container.removeChild(this.cfg.tmxTileMap);
+			}
+
+			let tiled_: any = egret.XML.parse(data);
+			this.cfg.tmxTileMap = new tiled.TMXTilemap(2000, 2000, tiled_, "resource/assets/maps/");
+			this.cfg.tmxTileMap.render();
+			this._view._container.addChildAt(this.cfg.tmxTileMap, 1);
+
+			//属性
+			console.log(this.cfg.tmxTileMap)
+
+			//层
+			let layers = this.cfg.tmxTileMap.getLayers()
+			let layer: tiled.TMXLayer = null
+			for (let i = 0; i < layers.length; i++) {
+				if (layers[i] instanceof tiled.TMXLayer) {
+					//widht = layers[i].tilewidth
+					//height = layers[i].tileheight
+					layer = layers[i]
+					//console.log(layers[i].getTile(1024, 20))
+					let renderer: any = layer.getRenderer()
+					this.draw_wire(renderer)
+
+					//绘制线段
+				} else if (layers[i] instanceof tiled.TMXObjectGroup) {
+					console.log("tiled.TMXObjectGroup")
+				}
+			}
+		}.bind(this), this)
+	}
+
+	//绘制横线段
+	public draw_wire(renderer) {
+		let rows = this.cfg.tmxTileMap.rows
+		let cols = this.cfg.tmxTileMap.cols
+		let width = this.cfg.tmxTileMap.tilewidth
+		let height = this.cfg.tmxTileMap.tileheight
+
+		let lt: egret.Point = renderer.tileToPixelCoords(0, 0)
+		let lb: egret.Point = renderer.tileToPixelCoords(0, rows-1)
+		let rt: egret.Point = renderer.tileToPixelCoords(cols-1, 0)
+		let rb: egret.Point = renderer.tileToPixelCoords(cols-1, rows-1)
+		for (let ii = 0; ii < rows; ii++) {
+			lt = renderer.tileToPixelCoords(0, ii)
+			lb = renderer.tileToPixelCoords(0, ii + 1)
+			rt = renderer.tileToPixelCoords(cols-1, ii)
+			rb = renderer.tileToPixelCoords(cols-1, ii + 1)
+			let shp: egret.Shape = this.draw_grid(lt, lb, rt, rb)
+			this._view._container.addChildAt(shp, 1);
+		}
+
+		for (let ii = 0; ii < cols; ii++) {
+			lt = renderer.tileToPixelCoords(ii, 0)
+			lb = renderer.tileToPixelCoords(ii, rows-1)
+			lb = lb.add(new egret.Point(-width/2, +height/2))
+			rt = renderer.tileToPixelCoords(ii+1, 0)
+			rb = renderer.tileToPixelCoords(ii + 1, rows-1)
+			rb = rb.add(new egret.Point(-width/2, +height/2))
+			let shp: egret.Shape = this.draw_grid(lt, lb, rt, rb)
+			this._view._container.addChildAt(shp, 1);
+		}
+	}
+
+	//根据左上, 左下, 右上, 右下四个点以及宽高绘制线段
+	public draw_grid(lt: egret.Point, lb: egret.Point, rt: egret.Point, rb: egret.Point): egret.Shape {
+		let shp: egret.Shape = new egret.Shape();
+		shp.graphics.lineStyle(1, 0x00ff00);
+		shp.graphics.moveTo(lt.x, lt.y);
+		shp.graphics.lineTo(lb.x, lb.y);
+		shp.graphics.lineTo(rb.x, rb.y);
+		shp.graphics.lineTo(rt.x, rt.y);
+		shp.graphics.lineTo(lt.x, lt.y);
+		shp.graphics.endFill();
+		return shp
 	}
 }

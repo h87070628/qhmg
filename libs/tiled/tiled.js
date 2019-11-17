@@ -699,6 +699,13 @@ var tiled;
             this.renderer = renderer;
         };
         /**
+        * 获取层渲染器
+        * @versioin Egret 5.0.25
+        */
+        TMXLayer.prototype.getRenderer = function () {
+            return this.renderer;
+        };
+        /**
          * 根据像素坐标获取Tile Id
          * @param x 水平像素坐标
          * @param y 垂直像素坐标

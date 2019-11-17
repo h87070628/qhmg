@@ -433,6 +433,11 @@ declare module tiled {
          */
         setRenderer(renderer: tiled.TMXRenderer): void;
         /**
+        * 获取层渲染器
+        * @versioin Egret 5.0.25
+        */
+        getRenderer(): tiled.TMXRenderer;
+        /**
          * 根据像素坐标获取Tile Id
          * @param x 水平像素坐标
          * @param y 垂直像素坐标

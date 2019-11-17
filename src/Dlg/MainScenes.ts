@@ -9,7 +9,7 @@ class MainScenes {
 		this._root = _root
 		this._view = <fairygui.GComponent>this._root.getChild("background")
 		this.cfg = {
-			tmxTileMap: null,
+			tmxTileMap: tiled.TMXTilemap = null,
 		}
 		this.onLoadView()
 		gMgrs["EventMgr"].addEvent(gMgrs["ComMgr"].gCNT().EVENT.UPDATE_UI_MSG, this.onUpdateUI, this);
@@ -55,9 +55,9 @@ class MainScenes {
 			}
 
 			let tiled_:any = egret.XML.parse(data);
-			let tmxTileMap: tiled.TMXTilemap = new tiled.TMXTilemap(2000, 2000, tiled_, "resource/assets/maps/");
+			this.cfg.tmxTileMap = new tiled.TMXTilemap(2000, 2000, tiled_, "resource/assets/maps/");
 			this.cfg.tmxTileMap.render();
-			this._view._container.addChild(tmxTileMap);
+			this._view._container.addChild(this.cfg.tmxTileMap);
 		}.bind(this), this)
 	}
 
